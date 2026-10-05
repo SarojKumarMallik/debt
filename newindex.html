@@ -120,13 +120,15 @@
         .form-card-wrapper {
             background: var(--surface);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-xl);
-            padding: clamp(22px, 3.5vw, 32px) clamp(18px, 3vw, 28px);
+            border-radius: 22px;
+            padding: clamp(22px, 3.5vw, 32px) clamp(16px, 3vw, 26px);
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
             width: 100%;
             box-sizing: border-box;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
 
         .form-card-wrapper::before {
@@ -136,7 +138,200 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent-green));
+            background: linear-gradient(90deg, var(--primary), #06b6d4, #10b981);
+        }
+
+        .form-header-box {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .form-pill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: var(--primary);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-bottom: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .form-title {
+            font-size: clamp(1.15rem, 2.5vw, 1.35rem) !important;
+            font-weight: 800 !important;
+            line-height: 1.25 !important;
+            margin-bottom: 5px !important;
+        }
+
+        .form-subtitle {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        .form-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .form-field-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .field-label {
+            display: flex !important;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.72rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.06em !important;
+            color: var(--text-muted) !important;
+            margin-bottom: 5px !important;
+        }
+
+        .req-star {
+            color: #ef4444;
+            font-weight: 800;
+            font-size: 0.85rem;
+            line-height: 1;
+        }
+
+        .optional-pill {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(148, 163, 184, 0.15);
+            padding: 1px 6px;
+            border-radius: 4px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .input-with-icon {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-with-icon .field-icon {
+            position: absolute;
+            left: 12px;
+            width: 15px;
+            height: 15px;
+            color: var(--text-muted);
+            opacity: 0.75;
+            pointer-events: none;
+            transition: all 0.2s ease;
+            z-index: 2;
+        }
+
+        .input-with-icon input,
+        .input-with-icon select,
+        .form-select-custom,
+        .form-textarea-custom {
+            width: 100%;
+            box-sizing: border-box;
+            height: 44px;
+            padding: 0 12px 0 36px !important;
+            background: var(--surface-2) !important;
+            border: 1.5px solid var(--glass-border) !important;
+            border-radius: 11px !important;
+            color: var(--text) !important;
+            font-family: var(--font-jakarta) !important;
+            font-size: 0.9rem !important;
+            line-height: 40px;
+            outline: none !important;
+            transition: all 0.25s ease;
+            display: block;
+        }
+
+        .input-with-icon:focus-within .field-icon {
+            color: var(--primary) !important;
+            opacity: 1 !important;
+            transform: scale(1.08);
+        }
+
+        .input-with-icon input:focus,
+        .input-with-icon select:focus,
+        .form-textarea-custom:focus {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 3.5px rgba(37, 99, 235, 0.16) !important;
+            background: var(--bg) !important;
+        }
+
+        .form-select-custom {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: right 12px center !important;
+            background-size: 14px !important;
+            padding-right: 32px !important;
+            cursor: pointer;
+        }
+
+        .form-textarea-custom {
+            height: auto !important;
+            min-height: 60px !important;
+            line-height: 1.45 !important;
+            padding: 10px 12px !important;
+            resize: vertical;
+            border-radius: 11px !important;
+        }
+
+        .form-submit-wrap {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .form-cta-btn {
+            width: 100% !important;
+            justify-content: center !important;
+            padding: 13px 18px !important;
+            font-size: 0.94rem !important;
+            font-weight: 800 !important;
+            border-radius: 12px !important;
+            letter-spacing: 0.02em !important;
+            box-shadow: 0 6px 20px -3px rgba(37, 99, 235, 0.4) !important;
+            transition: all 0.25s ease !important;
+        }
+
+        .form-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -3px rgba(37, 99, 235, 0.5) !important;
+        }
+
+        .cta-send-icon {
+            width: 16px;
+            height: 16px;
+            margin-left: 6px;
+            transition: transform 0.25s ease;
+        }
+
+        .form-cta-btn:hover .cta-send-icon {
+            transform: translateX(3px) translateY(-2px);
+        }
+
+        .form-trust-guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-weight: 600;
         }
 
         /* ===== CRM 4 PILLARS ===== */
@@ -401,9 +596,71 @@
         }
 
         @media (max-width: 640px) {
+            .form-card-wrapper {
+                border-radius: 18px !important;
+                padding: 18px 13px 20px !important;
+                box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.12) !important;
+            }
+
+            .form-fields {
+                gap: 9px !important;
+            }
+
             .form-row-2 {
-                grid-template-columns: 1fr !important;
-                gap: 10px !important;
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 8px !important;
+            }
+
+            .field-label {
+                font-size: 0.68rem !important;
+                margin-bottom: 3px !important;
+            }
+
+            .input-with-icon input,
+            .input-with-icon select {
+                height: 42px !important;
+                font-size: 0.85rem !important;
+                padding: 0 8px 0 32px !important;
+                border-radius: 10px !important;
+            }
+
+            .input-with-icon .field-icon {
+                left: 10px !important;
+                width: 14px !important;
+                height: 14px !important;
+            }
+
+            .form-select-custom {
+                background-position: right 8px center !important;
+                padding-right: 22px !important;
+            }
+
+            .form-textarea-custom {
+                min-height: 52px !important;
+                padding: 8px 10px !important;
+                font-size: 0.85rem !important;
+                border-radius: 10px !important;
+            }
+
+            .form-cta-btn {
+                padding: 12px 10px !important;
+                font-size: 0.82rem !important;
+                border-radius: 10px !important;
+            }
+
+            .form-trust-guarantee {
+                font-size: 0.66rem !important;
+                flex-wrap: wrap;
+                text-align: center;
+                gap: 4px;
+            }
+
+            @media (max-width: 360px) {
+                .form-row-2 {
+                    grid-template-columns: 1fr !important;
+                    gap: 9px !important;
+                }
             }
 
             .crm-pillars-grid,
@@ -483,8 +740,8 @@
 
             <!-- Call Button -->
             <a href="tel:+918867858986" class="nav-call-btn">
-                <i data-lucide="phone" style="width:16px;height:16px;"></i>
-                8867858986
+                <i data-lucide="phone" style="width:15px;height:15px;"></i>
+                <span>8867858986</span>
             </a>
 
             <!-- Theme Toggle -->
@@ -516,7 +773,7 @@
 
                 <!-- Left Column: Primary Pitch -->
                 <div class="hero-left-content" style="text-align:left;">
-                    <div class="section-badge badge-pulse" style="margin-bottom:18px;">
+                    <div class="section-badge" style="margin-bottom:18px;">
                         <i data-lucide="sparkles" style="width:14px;height:14px;color:var(--primary);"></i>
                         Intelligent AI for Credit & Collections
                     </div>
@@ -556,13 +813,16 @@
                 <!-- Right Column: Interactive Lead & ROI Assessment Form -->
                 <div class="hero-right-form" id="lead-form-section">
                     <div class="form-card-wrapper">
-                        <div id="formHeader" style="text-align:center;margin-bottom:20px;">
-                            <h3 class="text-gradient" style="font-size:1.35rem;font-weight:800;line-height:1.25;">
+                        <div id="formHeader" class="form-header-box">
+                            <div class="form-pill-badge">
+                                <i data-lucide="sparkles" style="width:12px;height:12px;"></i>
+                                <span>Free Instant Assessment</span>
+                            </div>
+                            <h3 class="text-gradient form-title">
                                 See What Ikontel Can Do for Your Collection Operation
                             </h3>
-                            <p style="font-size:0.82rem;color:var(--text-muted);margin-top:6px;line-height:1.45;">
-                                Get a live demonstration and customised ROI assessment based on your collection volumes,
-                                channels and operational model.
+                            <p class="form-subtitle">
+                                Get a live demonstration and customised ROI assessment tailored to your portfolio.
                             </p>
                         </div>
 
@@ -583,80 +843,121 @@
                             <input type="hidden" name="utm_campaign" id="utm_campaign">
                             <input type="hidden" name="submission_page" id="submission_page">
 
-                            <div class="form-fields" style="gap:10px;">
-                                <div>
-                                    <label class="field-label" for="formName">Name *</label>
-                                    <input type="text" id="formName" name="full_name" placeholder="Rajesh Sharma"
-                                        pattern="^[A-Za-z\s]+$" title="Only letters and spaces allowed" required>
-                                </div>
-
-                                <div class="form-row-2">
-                                    <div>
-                                        <label class="field-label" for="formCompany">Company *</label>
-                                        <input type="text" id="formCompany" name="company"
-                                            placeholder="e.g. HDFC / Bajaj" required>
-                                    </div>
-                                    <div>
-                                        <label class="field-label" for="formDesignation">Designation *</label>
-                                        <input type="text" id="formDesignation" name="designation"
-                                            placeholder="e.g. VP Collections" required>
+                            <div class="form-fields">
+                                <div class="form-field-group">
+                                    <label class="field-label" for="formName">
+                                        <span>Name</span>
+                                    </label>
+                                    <div class="input-with-icon">
+                                        <i data-lucide="user" class="field-icon"></i>
+                                        <input type="text" id="formName" name="full_name" placeholder="Rajesh Sharma"
+                                            pattern="^[A-Za-z\s]+$" title="Only letters and spaces allowed">
                                     </div>
                                 </div>
 
                                 <div class="form-row-2">
-                                    <div>
-                                        <label class="field-label" for="formEmail">Email *</label>
-                                        <input type="email" id="formEmail" name="email" placeholder="rajesh@bank.com"
-                                            required>
+                                    <div class="form-field-group">
+                                        <label class="field-label" for="formCompany">
+                                            <span>Company</span>
+                                        </label>
+                                        <div class="input-with-icon">
+                                            <i data-lucide="building-2" class="field-icon"></i>
+                                            <input type="text" id="formCompany" name="company"
+                                                placeholder="e.g. HDFC / Bajaj">
+                                        </div>
                                     </div>
-                                    <div>
-                                        <label class="field-label" for="formPhone">Phone *</label>
-                                        <input type="tel" id="formPhone" name="phone_number" placeholder="9876543210"
-                                            pattern="[0-9]{10}" maxlength="10"
-                                            title="Please enter a 10-digit mobile number" required>
+                                    <div class="form-field-group">
+                                        <label class="field-label" for="formDesignation">
+                                            <span>Designation</span>
+                                        </label>
+                                        <div class="input-with-icon">
+                                            <i data-lucide="briefcase" class="field-icon"></i>
+                                            <input type="text" id="formDesignation" name="designation"
+                                                placeholder="e.g. VP Collections">
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="form-row-2">
-                                    <div>
-                                        <label class="field-label" for="formOrgType">Bank/NBFC *</label>
-                                        <select id="formOrgType" name="institution_type" class="form-select-custom"
-                                            required>
-                                            <option value="" disabled selected>Select Institution</option>
-                                            <option value="Bank">Bank</option>
-                                            <option value="NBFC">NBFC</option>
-                                            <option value="Fintech / Digital Lending">Fintech / Digital Lending</option>
-                                            <option value="Microfinance (MFI)">Microfinance (MFI)</option>
-                                            <option value="Collection Agency">Collection Agency</option>
-                                            <option value="Other">Other</option>
-                                        </select>
+                                    <div class="form-field-group">
+                                        <label class="field-label" for="formEmail">
+                                            <span>Email</span>
+                                            <span class="req-star">*</span>
+                                        </label>
+                                        <div class="input-with-icon">
+                                            <i data-lucide="mail" class="field-icon"></i>
+                                            <input type="email" id="formEmail" name="email" placeholder="rajesh@bank.com"
+                                                required>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <label class="field-label" for="formVolume">Collection Volume *</label>
-                                        <select id="formVolume" name="collection_volume" class="form-select-custom"
-                                            required>
-                                            <option value="1,000 – 10,000">1K – 10K / Mo</option>
-                                            <option value="10,000 – 50,000">10K – 50K / Mo</option>
-                                            <option value="50,000 – 200,000">50K – 200K / Mo</option>
-                                            <option value="200,000+">200K+ / Mo</option>
-                                        </select>
+                                    <div class="form-field-group">
+                                        <label class="field-label" for="formPhone">
+                                            <span>Phone</span>
+                                            <span class="req-star">*</span>
+                                        </label>
+                                        <div class="input-with-icon">
+                                            <i data-lucide="phone" class="field-icon"></i>
+                                            <input type="tel" id="formPhone" name="phone_number" placeholder="9876543210"
+                                                pattern="[0-9]{10}" maxlength="10"
+                                                title="Please enter a 10-digit mobile number" required>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label class="field-label" for="formRequirement">Requirement</label>
+                                <div class="form-row-2">
+                                    <div class="form-field-group">
+                                        <label class="field-label" for="formOrgType">
+                                            <span>Bank / NBFC</span>
+                                        </label>
+                                        <div class="input-with-icon">
+                                            <i data-lucide="landmark" class="field-icon"></i>
+                                            <select id="formOrgType" name="institution_type" class="form-select-custom">
+                                                <option value="" selected>Select Type</option>
+                                                <option value="Bank">Bank</option>
+                                                <option value="NBFC">NBFC</option>
+                                                <option value="Fintech / Digital Lending">Fintech / Digital Lending</option>
+                                                <option value="Microfinance (MFI)">Microfinance (MFI)</option>
+                                                <option value="Collection Agency">Collection Agency</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-field-group">
+                                        <label class="field-label" for="formVolume">
+                                            <span>Volume</span>
+                                        </label>
+                                        <div class="input-with-icon">
+                                            <i data-lucide="bar-chart-2" class="field-icon"></i>
+                                            <select id="formVolume" name="collection_volume" class="form-select-custom">
+                                                <option value="" selected>Select Vol</option>
+                                                <option value="1,000 – 10,000">1K – 10K / Mo</option>
+                                                <option value="10,000 – 50,000">10K – 50K / Mo</option>
+                                                <option value="50,000 – 200,000">50K – 200K / Mo</option>
+                                                <option value="200,000+">200K+ / Mo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-field-group">
+                                    <label class="field-label" for="formRequirement">
+                                        <span>Requirement</span>
+                                    </label>
                                     <textarea id="formRequirement" name="requirement" class="form-textarea-custom"
                                         rows="2"
                                         placeholder="Tell us about your collection operations, channels, or current goals..."></textarea>
                                 </div>
                             </div>
 
-                            <div style="margin-top:16px;text-align:center;">
-                                <button type="submit" class="btn btn-primary"
-                                    style="width:100%;justify-content:center;padding:14px;font-size:0.98rem;font-weight:800;border-radius:10px;">
-                                    [ GET MY ROI ASSESSMENT + DEMO ] <i data-lucide="send"
-                                        style="width:16px;height:16px;"></i>
+                            <div class="form-submit-wrap">
+                                <button type="submit" id="formSubmitBtn" class="btn btn-primary form-cta-btn">
+                                    <span>[ GET MY ROI ASSESSMENT + DEMO ]</span>
+                                    <i data-lucide="send" class="cta-send-icon"></i>
                                 </button>
+                                <div class="form-trust-guarantee">
+                                    <i data-lucide="shield-check" style="width:13px;height:13px;color:#10b981;"></i>
+                                    <span>100% Confidential • Enterprise Grade • No Spam</span>
+                                </div>
                             </div>
                         </form>
 
@@ -1251,7 +1552,7 @@
                     if (formSuccessMessage) formSuccessMessage.style.display = 'none';
                     if (formSubmitBtn) {
                         formSubmitBtn.disabled = false;
-                        formSubmitBtn.innerHTML = `[ GET MY ROI ASSESSMENT + DEMO ] <i data-lucide="send" style="width:16px;height:16px;"></i>`;
+                        formSubmitBtn.innerHTML = `<span>[ GET MY ROI ASSESSMENT + DEMO ]</span> <i data-lucide="send" class="cta-send-icon"></i>`;
                         if (window.lucide) lucide.createIcons();
                     }
                 });
