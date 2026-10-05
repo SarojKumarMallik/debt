@@ -8,6 +8,11 @@
     <meta name="description"
         content="Turn Every Customer Interaction Into the Next Intelligent Action. Ikontel brings your CRM, AI, Agentic AI, intelligent debt and collection journeys, omnichannel communication and reporting together.">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.ikontel.com/assets/img/logo/iKonTel-logo.png">
+    <link rel="shortcut icon" href="https://www.ikontel.com/assets/img/logo/iKonTel-logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://www.ikontel.com/assets/img/logo/iKonTel-logo.png">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -348,7 +353,14 @@
             border-radius: 16px;
             padding: clamp(18px, 2.5vw, 26px) 16px;
             text-align: center;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: var(--shadow);
         }
 
         .pillar-icon-wrap {
@@ -375,7 +387,14 @@
             border-radius: 14px;
             padding: 16px 12px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .action-card-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: var(--shadow);
         }
 
         /* ===== JOURNEY FLOW RESPONSIVE ===== */
@@ -391,35 +410,52 @@
         .journey-steps-track {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 10px;
+            gap: clamp(8px, 1.5vw, 14px);
             width: 100%;
         }
 
         .journey-step-card {
             background: var(--surface-2);
             border: 1px solid var(--glass-border);
-            border-radius: 14px;
-            padding: 16px 10px;
+            border-radius: 16px;
+            padding: 20px 10px 16px;
             text-align: center;
-            transition: transform 0.25s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .journey-step-num {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 800;
+        .journey-step-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px -4px rgba(37, 99, 235, 0.25);
+            background: var(--surface);
+        }
+
+        .journey-step-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            margin: 0 auto 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 8px;
+            transition: all 0.3s ease;
+        }
+
+        .journey-step-card:hover .journey-step-icon {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.08);
         }
 
         .journey-step-title {
-            font-size: clamp(0.78rem, 1.5vw, 0.9rem);
+            font-size: clamp(0.82rem, 1.4vw, 0.95rem);
             font-weight: 700;
             color: var(--text);
         }
@@ -436,6 +472,14 @@
             border-radius: 14px;
             padding: 16px 12px;
             text-align: center;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            cursor: pointer;
+        }
+
+        .channel-box:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: var(--shadow);
         }
 
         .channel-icon-wrap {
@@ -474,6 +518,13 @@
             border-radius: 16px;
             padding: clamp(16px, 3vw, 22px) clamp(20px, 4vw, 32px);
             text-align: center;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            cursor: pointer;
+        }
+
+        .cost-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(59, 130, 246, 0.4);
         }
 
         .cost-num {
@@ -495,6 +546,12 @@
             max-width: 100%;
             box-sizing: border-box;
             text-align: center;
+            cursor: pointer;
+            transition: transform 0.25s ease;
+        }
+
+        .savings-badge-huge:hover {
+            transform: scale(1.03);
         }
 
         .analytics-metrics-grid {
@@ -510,6 +567,14 @@
             border-radius: 14px;
             padding: 16px 14px;
             text-align: center;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            cursor: pointer;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: var(--shadow);
         }
 
         .metric-icon-box {
@@ -814,10 +879,6 @@
                 <div class="hero-right-form" id="lead-form-section">
                     <div class="form-card-wrapper">
                         <div id="formHeader" class="form-header-box">
-                            <div class="form-pill-badge">
-                                <i data-lucide="sparkles" style="width:12px;height:12px;"></i>
-                                <span>Free Instant Assessment</span>
-                            </div>
                             <h3 class="text-gradient form-title">
                                 See What Ikontel Can Do for Your Collection Operation
                             </h3>
@@ -951,13 +1012,8 @@
 
                             <div class="form-submit-wrap">
                                 <button type="submit" id="formSubmitBtn" class="btn btn-primary form-cta-btn">
-                                    <span>[ GET MY ROI ASSESSMENT + DEMO ]</span>
-                                    <i data-lucide="send" class="cta-send-icon"></i>
+                                    <span>GET MY ROI ASSESSMENT + DEMO</span>
                                 </button>
-                                <div class="form-trust-guarantee">
-                                    <i data-lucide="shield-check" style="width:13px;height:13px;color:#10b981;"></i>
-                                    <span>100% Confidential • Enterprise Grade • No Spam</span>
-                                </div>
                             </div>
                         </form>
 
@@ -1124,41 +1180,35 @@
                 </p>
             </div>
 
-            <!-- Workflow Sequence: Understand → Engage → Listen → Decide → Adapt → Escalate → Learn -->
+            <!-- Intelligent Journey Pipeline -->
             <div class="journey-flow-wrapper">
-                <div style="text-align:center;margin-bottom:25px;">
-                    <h3 style="font-size:1.35rem;font-weight:800;color:var(--text);letter-spacing:-0.5px;">
-                        Understand → Engage → Listen → Decide → Adapt → Escalate → Learn
-                    </h3>
-                </div>
-
                 <div class="journey-steps-track">
                     <div class="journey-step-card">
-                        <div class="journey-step-num">1</div>
+                        <div class="journey-step-icon"><i data-lucide="scan-search" style="width:20px;height:20px;"></i></div>
                         <div class="journey-step-title">Understand</div>
                     </div>
                     <div class="journey-step-card">
-                        <div class="journey-step-num">2</div>
+                        <div class="journey-step-icon"><i data-lucide="send" style="width:20px;height:20px;"></i></div>
                         <div class="journey-step-title">Engage</div>
                     </div>
                     <div class="journey-step-card">
-                        <div class="journey-step-num">3</div>
+                        <div class="journey-step-icon"><i data-lucide="headphones" style="width:20px;height:20px;"></i></div>
                         <div class="journey-step-title">Listen</div>
                     </div>
                     <div class="journey-step-card">
-                        <div class="journey-step-num">4</div>
+                        <div class="journey-step-icon"><i data-lucide="cpu" style="width:20px;height:20px;"></i></div>
                         <div class="journey-step-title">Decide</div>
                     </div>
                     <div class="journey-step-card">
-                        <div class="journey-step-num">5</div>
+                        <div class="journey-step-icon"><i data-lucide="refresh-cw" style="width:20px;height:20px;"></i></div>
                         <div class="journey-step-title">Adapt</div>
                     </div>
                     <div class="journey-step-card">
-                        <div class="journey-step-num">6</div>
+                        <div class="journey-step-icon"><i data-lucide="user-check" style="width:20px;height:20px;"></i></div>
                         <div class="journey-step-title">Escalate</div>
                     </div>
                     <div class="journey-step-card">
-                        <div class="journey-step-num">7</div>
+                        <div class="journey-step-icon"><i data-lucide="sparkles" style="width:20px;height:20px;"></i></div>
                         <div class="journey-step-title">Learn</div>
                     </div>
                 </div>
@@ -1552,7 +1602,7 @@
                     if (formSuccessMessage) formSuccessMessage.style.display = 'none';
                     if (formSubmitBtn) {
                         formSubmitBtn.disabled = false;
-                        formSubmitBtn.innerHTML = `<span>[ GET MY ROI ASSESSMENT + DEMO ]</span> <i data-lucide="send" class="cta-send-icon"></i>`;
+                        formSubmitBtn.innerHTML = `<span>GET MY ROI ASSESSMENT + DEMO</span>`;
                         if (window.lucide) lucide.createIcons();
                     }
                 });
